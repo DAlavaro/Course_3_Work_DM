@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request
-from utils import get_posts_all, get_comments_by_post_id, search_for_posts, get_post_by_pk
+from utils import get_posts_all, get_comments_by_post_id, search_for_posts, get_post_by_pk, get_posts_by_user
 
 
 main_blueprint = Blueprint('main_blueprint', __name__, template_folder='templates')
@@ -22,4 +22,7 @@ def search():
     posts = search_for_posts(data)
     return render_template('search.html', posts = posts)
 
-
+@main_blueprint.route('/users/<username>')
+def user_feed(username):
+    posts = get_posts_by_user(username)
+    return render_template('user-feed.html', posts = posts)
