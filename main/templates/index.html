@@ -11,7 +11,7 @@
 <body>
   <header class="container header">
     <div class="header__wrapper">
-      <a href="/static" class="header__logo-link">
+      <a href="/" class="header__logo-link">
         <svg class="header__logo" width="177" height="26">
           <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#skyprogram"></use>
         </svg>
@@ -27,24 +27,24 @@
 
     <div class="search">
       <form action="/search" class="search__form">
-        <input type="search" class="search__input">
+        <input type="search" class="search__input" name = "s">
       </form>
     </div>
     {% for post in posts %}
     <section class="items">
       <div class="items__item item">
         <div class="item__top">
-          <a href="/templates/user-feed.html-feed.html" class="item__head">
+          <a href="/users/{{post.poster_name}}" class="item__head">
             <div class="item__ava-wrap">
-              <img src="../../img/ava1.png" alt="" class="item__ava" width="47">
+              <img src="{{post.poster_avatar}}" alt="" class="item__ava" width="47">
             </div>
             <span class="item__username">{{post.poster_name}}</span>
           </a>
         </div>
-        <a href="/main/templates/post.html/post.html" class="item__post-link">
-          <img src="../../img/post1.jpg" alt="" width="348" class="item__post-img">
+        <a href="/posts/{{post.pk}}" class="item__post-link">
+          <img src="{{post.pic}}" alt="" width="348" class="item__post-img">
         </a>
-        <p class="item__descr">{{post.content[:35]}}...</p>
+        <p class="item__descr">{{post.content[:50]}}...</p>
         <div class="item__post-info">
           <div class="item__counter">
             <img src="../../img/eye.png" alt="" class="item__counter-icon" width="26">
@@ -52,7 +52,7 @@
           </div>
         </div>
         <div class="item__post-bottom">
-          <a href="/main/templates/post.html/post.html" class="item__btn-more">Подробнее</a>
+          <a href="/posts/{{post.pk}}" class="item__btn-more">Подробнее</a>
           <button type="button" class="item__bookmark-btn">
             <img src="../../img/bookmark.png" alt="" class="item__bookmark-icon" width="24">
           </button>

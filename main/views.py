@@ -1,5 +1,5 @@
-from flask import Blueprint, render_template
-from utils import get_posts_all, get_comments_by_post_id, get_posts_by_user, get_post_by_pk
+from flask import Blueprint, render_template, request
+from utils import get_posts_all, get_comments_by_post_id, search_for_posts, get_post_by_pk
 
 
 main_blueprint = Blueprint('main_blueprint', __name__, template_folder='templates')
@@ -15,3 +15,11 @@ def post_list(post_id):
     post = get_post_by_pk(post_id)
     post_comment = get_comments_by_post_id(post_id)
     return render_template('post.html', post=post, post_comment=post_comment)
+
+@main_blueprint.route('/search/')
+def search():
+    data = request.values["s"]
+    posts = search_for_posts(data)
+    return render_template('search.html', posts = posts)
+
+
