@@ -28,7 +28,7 @@
     <section class="items">
       <div class="items__item item item--post">
         <div class="item__top">
-          <a href="/templates/user-feed.html-feed.html" class="item__head">
+          <a href="/users/{{post.poster_name}}"class="item__head">
             <div class="item__ava-wrap">
               <img src="{{post.poster_avatar}}" alt="" class="item__ava" width="47">
             </div>
@@ -36,7 +36,7 @@
             <span class="item__username">{{post.poster_name|title}}</span>
           </a>
           <button type="button" class="item__bookmark-btn">
-            <img src="../../img/bookmark.png" alt="" class="item__bookmark-icon" width="24">
+            <img src="../../static/img/bookmark.png" alt="" class="item__bookmark-icon" width="24">
           </button>
         </div>
         <a href="" class="item__post-link">
@@ -51,7 +51,7 @@
           <div class="item__post-info">
             <p class="item__comments-counter">{{post_comment|length}}</p>
             <div class="item__counter">
-              <img src="../../img/eye.png" alt="" class="item__counter-icon" width="26">
+              <img src="../../static/img/eye.png" alt="" class="item__counter-icon" width="26">
               <span class="item__counter-text">{{post.views_count}}</span>
             </div>
           </div>
