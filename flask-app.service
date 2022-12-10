@@ -5,7 +5,7 @@ After=network.target
 [Service]
 WorkingDirectory=/home/dmart/app
 Environment=FLASK_APP=app.py
-ExecStart=/home/dmart/app/venv/bin/python -m gunicorn app:app -b 0.0.0.0 -p 25000 -w 4
+ExecStart=/home/dmart/app/venv/bin/python -m gunicorn app:app -b 0.0.0.0:25000 -w 4
 
 [Install]
 WantedBy=multi-user.target
