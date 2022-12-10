@@ -10,4 +10,4 @@ app.config['JSON_AS_ASCII'] = False
 app.register_blueprint(main_blueprint)
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host="localhost", port=10001, debug=True)
